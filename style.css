@@ -21,3 +21,7 @@
     border-radius: 10px;
     width: 20px;
 }
+
+body, head, main, nav {
+    width: 100%;
+}

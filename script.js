@@ -46,3 +46,30 @@
             el.style.transition = 'all 0.6s ease';
             observer.observe(el);
         });
+
+// ─── VUE 3 APP FOR “PROJECTS” ────────────────────────────────────────────────────
+const { createApp } = Vue;
+
+createApp({
+  data() {
+    return {
+      projects: []  // will be filled by fetch()
+    };
+  },
+  created() {
+    // When the Vue app is created, load projects.json
+    fetch('projects.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(jsonData => {
+        this.projects = jsonData;
+      })
+      .catch(err => {
+        console.error('Could not load projects.json:', err);
+      });
+  }
+}).mount('#projects-app');

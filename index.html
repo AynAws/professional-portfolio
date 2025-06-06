@@ -56,37 +56,25 @@
     <section id="projects" class="section">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
+            <!-- Strat Vue mounting -->
+            <div id="projects-app">
             <div class="projects-grid">
-                <div class="project-card">
+                <div
+                    class="project-card"
+                    v-for="(project, idx) in projects"
+                    :key="idx"
+                >
                     <div class="project-image">
-                        <span>Professional Portfolio</span>
+                        <span>{{ project.name }}</span>
                     </div>
                     <div class="project-info">
-                        <h3 class="project-title">Personal Professional Portfolio</h3>
-                        <p class="project-description">The very site you are browing right now, my personal portfolio! It showcases some of the best work I've done both in it's own desing and the other sites it showcases in the following Cards!</p>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">
-                        <span>Taqwa Clothing</span>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Taqwa Clothing's Website</h3>
-                        <p class="project-description">A sleek and minimal e-commerce website built for Taqwa Clothing, focused on simplicity and elegance. Features include product galleries, mobile optimization, and an easy-to-navigate shopping experience tailored to the brand’s modest fashion ethos.</p>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">
-                        <span>Diogenes</span>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Diogenes Biography</h3>
-                        <p class="project-description">An educational and interactive biography site exploring the life and philosophy of Diogenes of Sinope. Built to present historical content in an engaging way, with clean typography and smooth scroll-driven storytelling elements.</p>
+                        <h3 class="project-title">{{ project.title }}</h3>
+                        <p class="project-description">{{ project.description }}</p>
                     </div>
                 </div>
             </div>
+            </div>
+            <!-- End Vue mounting -->
         </div>
     </section>
 
@@ -131,7 +119,7 @@
             <p>&copy; 2025 AynDevs. All rights reserved. Crafted with passion and precision.</p>
         </div>
     </footer>
-
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
